@@ -1,0 +1,49 @@
+# chmod 755 install and execute this script. ./install
+
+# If you are using Linux, be sure to install gtk3-nocsd first before installing this theme.
+
+# If you want to install this theme manually, simply move BlackMagic to ~/.themes and Mint-Y-Grey
+# to ~/.icons. Right click on desktop, choose Applications > Settings > Appearance and choose
+# BlackMagic. Be sure that you select "Set matching xfwm4 theme if there is one" at the bottom.
+# Click on the icons tab and choose Mint-Y-Grey.
+
+# Install BlackMagic.theme to ~/.local/share/xfce4/terminal/colorschemes/
+# You can set BlackMagic theme colors in the future on your terminal by right clicking in terminal
+# Right click > Preferences > Click Colors tab and under Presets > Select Preset > BlackMagic
+
+# Transparency of inactive windows can be set by going to Window Manager Tweaks > Compositor tab and
+# then you can set 'Opacity of inactive windows' using the slider.
+
+# My other repositories: https://github.com/carls0n/
+
+printf "Installing theme...\n"
+[[ ! -d ~/.themes ]] && mkdir ~/.themes
+cp -R BlackMagic ~/.themes/
+[[ ! -d ~/.icons ]] && mkdir ~/.icons
+cp -R Mint-Y-Grey ~/.icons/
+[[ ! -d ~/.local/share/xfce4/terminal/colorschemes/ ]] && mkdir -p ~/.local/share/xfce4/terminal/colorschemes
+cp BlackMagic.theme ~/.local/share/xfce4/terminal/colorschemes/
+
+xfconf-query -c xsettings -p /Net/ThemeName -t "string" -s BlackMagic --create
+xfconf-query -c xsettings -p /Net/IconThemeName -t "string" -s Mint-Y-Grey --create
+
+xfconf-query -c xfwm4 -p /general/theme -s BlackMagic
+xfconf-query -c xfwm4 -p /general/title_alignment -s right
+xfconf-query -c xfwm4 -p /general/frame_opacity -s 89
+xfconf-query -c xfwm4 -p /general/inactive_opacity -s 89
+
+xfconf-query -c xfce4-notifyd -p /theme -t string --set BlackMagic --create
+
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor`xrandr | grep -w connected | awk '{print $1}'`/workspace0/\
+last-image -s "/home/`whoami`/.themes/BlackMagic/wallpaper/wallpaper.png" && \
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor`xrandr | grep -w connected | awk '{print $1}'`/workspace0/image-style -s 3
+
+xfconf-query -c xfce4-panel -p /panels/panel-1/background-style -t int -s 0 --create
+
+xfconf-query -c xfce4-terminal -p /color-background -t "string" -s "#161616" --create
+xfconf-query -c xfce4-terminal -p /color-foreground -t "string" -s "#c7c7c7" --create
+
+xfconf-query -c xfce4-terminal -p /ShowMenubar -t "bool" -s "true" --create
+xfconf-query -c xfce4-terminal -p /ShellShowMenubar -t "bool" -s "true" --create
+
+printf "Finished installing BlackMagic theme.\n"

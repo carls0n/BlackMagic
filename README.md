@@ -1,1 +1,1 @@
-![Black-Attack screenshot](https://github.com/carls0n/Black-Attack/blob/master/screenshot.png)
+![Black-Attack screenshot](https://github.com/carls0n/BlackMagic/blob/main/screenshot.png)

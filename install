@@ -49,4 +49,7 @@ xfconf-query -c xfce4-terminal -p /color-foreground -t "string" -s "#c7c7c7" --c
 xfconf-query -c xfce4-terminal -p /ShowMenubar -t "bool" -s "true" --create
 xfconf-query -c xfce4-terminal -p /ShellShowMenubar -t "bool" -s "true" --create
 
+xfconf-query -c xfce4-terminal -p /background-darkness -t double -s "0.7200" --create
+xfconf-query -c xfce4-terminal -p /background-mode -t "string" -s "TERMINAL_BACKGROUND_TRANSPARENT" --create
+
 printf "Finished installing BlackMagic theme.\n"

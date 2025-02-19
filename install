@@ -14,6 +14,9 @@
 # Transparency of inactive windows can be set by going to Window Manager Tweaks > Compositor tab and
 # then you can set 'Opacity of inactive windows' using the slider.
 
+# Transparency of active windows can be set by right clicking on terminal > Preferences > Apperance >
+# click on background and choose Transparent background. You can use the slider to choose amount of transparency.
+
 # My other repositories: https://github.com/carls0n/
 
 printf "Installing theme...\n"

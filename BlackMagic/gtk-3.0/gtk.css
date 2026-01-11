@@ -3835,6 +3835,13 @@ menuitem radio:hover
   border-width: 0 1px 1px 1px;
   border-style: solid; }
 
+.line-numbers {
+    background-color: #161616 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    padding-right: 10px;
+}
+
 /**********
  * Thunar *
  **********/

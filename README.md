@@ -1,5 +1,6 @@
 
-https://github.com/user-attachments/assets/072d710f-573d-4b37-882f-686fbd547f52
+https://github.com/user-attachments/assets/fabb0624-756a-46b1-8533-df0813d9ccf0
+
 
 
 You can use my Custom_Bibata script to generate a matching cursor theme.

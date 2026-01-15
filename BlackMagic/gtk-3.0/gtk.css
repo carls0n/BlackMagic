@@ -3836,9 +3836,9 @@ menuitem radio:hover
   border-style: solid; }
 
 .line-numbers {
-    background-color: #161616 !important;
-    color: #ffffff !important;
-    opacity: 1 !important;
+    background-color: #161616;
+    color: #ffffff;
+    opacity: 1;
     padding-right: 10px;
 }
 

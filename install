@@ -2,6 +2,8 @@
 
 # If you are using Linux, be sure to install gtk3-nocsd first before installing this theme.
 
+# My other repositories: https://github.com/carls0n/
+
 # If you want to install this theme manually, simply move BlackMagic to ~/.themes and Mint-Y-Grey
 # to ~/.icons. Right click on desktop, choose Applications > Settings > Appearance and choose
 # BlackMagic. Be sure that you select "Set matching xfwm4 theme if there is one" at the bottom.
@@ -17,9 +19,11 @@
 # Transparency of active windows can be set by right clicking on terminal > Preferences > Apperance >
 # click on background and choose Transparent background. You can use the slider to choose amount of transparency.
 
-# If you want this theme installed with transparent windows, uncomment the lines below that are commentesd out.
+# If you want this theme installed with transparent windows, set the following option for transparency to 1.
+# If you want to enable the menu button on the left of window decorations, set the enable_menu_button to 1
 
-# My other repositories: https://github.com/carls0n/
+transparency=0
+enable_menu_button=0
 
 printf "Installing theme...\n"
 [[ ! -d ~/.themes ]] && mkdir ~/.themes
@@ -34,7 +38,6 @@ xfconf-query -c xsettings -p /Net/IconThemeName -t "string" -s Mint-Y-Grey --cre
 
 xfconf-query -c xfwm4 -p /general/theme -s BlackMagic
 xfconf-query -c xfwm4 -p /general/title_alignment -s right
-# xfconf-query -c xfwm4 -p /general/frame_opacity -s 89
 xfconf-query -c xfwm4 -p /general/inactive_opacity -s 89
 
 xfconf-query -c xfce4-notifyd -p /theme -t string --set BlackMagic --create
@@ -51,7 +54,12 @@ xfconf-query -c xfce4-terminal -p /color-foreground -t "string" -s "#c7c7c7" --c
 xfconf-query -c xfce4-terminal -p /ShowMenubar -t "bool" -s "true" --create
 xfconf-query -c xfce4-terminal -p /ShellShowMenubar -t "bool" -s "true" --create
 
-# xfconf-query -c xfce4-terminal -p /background-darkness -t double -s "0.7200" --create
-# xfconf-query -c xfce4-terminal -p /background-mode -t "string" -s "TERMINAL_BACKGROUND_TRANSPARENT" --create
+[[ $transparency -eq 1 ]] &&
+xfconf-query -c xfwm4 -p /general/frame_opacity -s 89 &&
+xfconf-query -c xfce4-terminal -p /background-darkness -t double -s "0.7200" --create &&
+xfconf-query -c xfce4-terminal -p /background-mode -t "string" -s "TERMINAL_BACKGROUND_TRANSPARENT" --create
+
+xfconf-query -c xfwm4 -p /general/button_layout -s "|HMC"
+[[ $enable_menu_button -eq 1 ]] && xfconf-query -c xfwm4 -p /general/button_layout -s "O|HMC"
 
 printf "Finished installing BlackMagic theme.\n"

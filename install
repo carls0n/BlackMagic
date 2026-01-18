@@ -39,6 +39,7 @@ xfconf-query -c xsettings -p /Net/IconThemeName -t "string" -s Mint-Y-Grey --cre
 xfconf-query -c xfwm4 -p /general/theme -s BlackMagic
 xfconf-query -c xfwm4 -p /general/title_alignment -s right
 xfconf-query -c xfwm4 -p /general/inactive_opacity -s 89
+xfconf-query -c xfwm4 -p /general/frame_opacity -s 100
 
 xfconf-query -c xfce4-notifyd -p /theme -t string --set BlackMagic --create
 

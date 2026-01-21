@@ -55,7 +55,7 @@ xfconf-query -c xfce4-terminal -p /color-foreground -t "string" -s "#c7c7c7" --c
 xfconf-query -c xfce4-terminal -p /ShowMenubar -t "bool" -s "true" --create
 xfconf-query -c xfce4-terminal -p /ShellShowMenubar -t "bool" -s "true" --create
 
-xfconf-query -c xfce4-terminal -p /background-mode -s "TERMINAL_BACKGROUND_SOLID"
+xfconf-query -c xfce4-terminal -p /background-mode -s "TERMINAL_BACKGROUND_SOLID" --create
 
 [[ $transparency -eq 1 ]] &&
 xfconf-query -c xfwm4 -p /general/frame_opacity -s 89 &&
